@@ -29,12 +29,10 @@
 (pesoMax ?pesoMax)
 (paquete p ?xPaq peso ?pesoPaq destino ?dPaq)
 (test (= ?x ?xPaq))
-(test (>= ?pesoPaq ?pesoMax))
+(test (<= (+ ?peso ?pesoPaq) ?pesoMax))
 =>
 (printout t "¡Encontré el paquete!" crlf)
  (assert
 	(montacargas p ?x paquete (+ ?paq 1) peso (+ ?peso ?pesoPaq) destino (+ ?d ?dPaq))
  )
 )
-
-
