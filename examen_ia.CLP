@@ -4,9 +4,6 @@
 (paquete p 2 peso 300 destino 4)
 (tamanyo p 5)
 (pesoMax 650)
-(destino p 3)
-(destino p 3)
-(destino p 4)
 )
 
 (defrule subir_piso
@@ -32,7 +29,7 @@
 (pesoMax ?pesoMax)
 (paquete p ?xPaq peso ?pesoPaq destino ?dPaq)
 (test (= ?x ?xPaq))
-(test (<= ?pesoPaq ?pesoMax))
+(test (>= ?pesoPaq ?pesoMax))
 =>
 (printout t "¡Encontré el paquete!" crlf)
  (assert
