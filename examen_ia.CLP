@@ -26,10 +26,9 @@
 (printout t "he bajado 1 piso" crlf)
 )
 
-
 (defrule encontrar_paquete
 (declare (salience 100))
-?f <- (montacargas p ?x  paquete ?paq peso ?pes destino ?d)
+?f <- (montacargas p ?x  paquete ?paq peso ?peso destino ?d)
 (pesoMax ?pesoMax)
 (paquete p ?xPaq peso ?pesoPaq destino ?dPaq)
 (test (= ?x ?xPaq))
