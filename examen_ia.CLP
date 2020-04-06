@@ -4,6 +4,10 @@
 (paquete p 2 peso 300 destino 4)
 (tamanyo p 5)
 (pesoMax 650)
+(destino p 3)
+(detsino p 3)
+(destino p 4)
+
 )
 
 (defrule subir_piso
@@ -34,5 +38,17 @@
 (printout t "¡Encontré el paquete!" crlf)
  (assert
 	(montacargas p ?x paquete (+ ?paq 1) peso (+ ?peso ?pesoPaq) destino (+ ?d ?dPaq))
+ )
+)
+
+(defrule entregar_paquete
+(declare (salience 150))
+?f <- (montacargas p ?x  paquete ?paq peso ?peso destino ?d)
+(destino p ?xdestino)
+(test (= ?x ?xdestino))
+=>
+ (printout t "¡Entregué el paquete!" crlf)
+(assert
+	(montacargas p ?x paquete (- ?paq 1) peso (- ?peso ?pesoPaq) destino (- ?d ?xdestino))
  )
 )
