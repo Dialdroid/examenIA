@@ -18,3 +18,13 @@
 (printout t "he subido 1 piso" crlf)
 )
 
+(defrule bajar_piso
+?f <- (montacargas p ?x  paquete ?paq peso ?pes)
+(tamanyo p ?xMax)
+(test (>= (- ?x 1) 0))
+=>
+(assert (montacargas p (- ?x 1) paquete ?paq peso ?pes))
+(printout t "he bajado 1 piso" crlf)
+)
+
+
